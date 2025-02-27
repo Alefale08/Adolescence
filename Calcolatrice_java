@@ -1,0 +1,42 @@
+import java.util.Scanner;
+
+public class Main
+{
+    public static int Somma(int a,int b){
+        return a+b;
+    }
+    public static int Differenza(int a,int b){
+        return a-b;
+    }
+    public static int Moltiplicazione(int a,int b){
+        return a*b;
+    }
+    public static int Divisione(int a, int b){
+        return a/b;
+    }
+	public static void main(String[] args) {
+	    Scanner scanner=new Scanner(System.in);
+	    System.out.println("Inserisci un numero: 1-2-3-4: ");
+	    int n=scanner.nextInt();
+	    System.out.println("Inserisci il primo numero: ");
+	    int a=scanner.nextInt();
+	    System.out.println("Inserisci il secondo numero: ");
+	    int b=scanner.nextInt();
+	    switch(n){
+	        case 1:
+	            System.out.println(Somma(a,b));
+	            break;
+	        case 2:
+	            System.out.println(Differenza(a,b));
+	            break;
+	       case 3:
+	           System.out.println(Moltiplicazione(a,b));
+	           break;
+	       case 4:
+	           System.out.println(Divisione(a,b));
+	           break;
+	        
+	    }
+	    
+	}
+}
