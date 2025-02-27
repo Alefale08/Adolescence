@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Main
+{
+    public static int Input(){
+        Scanner scanner=new Scanner(System.in);
+        int posto;
+        do{
+        posto=scanner.nextInt();
+        if(posto<0 || posto>=10){
+            System.out.println("ERRORE ERRORE ERRORE");
+        }
+        }while(posto<0 || posto>=10);
+        return posto;
+    }
+	public static void main(String[] args) {
+	    int array[]=new int[10];
+	    int somma=0;
+        for(int i=0;i<10;i++){
+            array[i]=0;
+        }
+	    do{
+	        System.out.println("Benvenuto nel cinema. I posti sono 10 e vanno dal 0-9, inserisici il posto che vuoi prenotare: ");
+	        int posto=Input();
+	        if(array[posto]==0){
+	            System.out.println("Il posto è libero benvenuto!!!");
+	            array[posto]=1;
+	            somma=somma+1;
+	        }
+	        else{
+	            System.out.println("Il posto è occupato.");
+	        }
+	    }while(somma<10);
+	    System.out.println("I posti sono tutti occupati.");
+	}
+}
