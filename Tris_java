@@ -1,0 +1,80 @@
+import java.util.Scanner;
+
+public class Main {
+    
+    public static boolean controllovincita(char[][] reticolo, char player) {
+        for (int i = 0; i < 3; i++) {
+            if ((reticolo[i][0] == player && reticolo[i][1] == player && reticolo[i][2] == player) || 
+                (reticolo[0][i] == player && reticolo[1][i] == player && reticolo[2][i] == player)) { 
+                return true;
+            }
+        }
+
+        
+        if ((reticolo[0][0] == player && reticolo[1][1] == player && reticolo[2][2] == player) || 
+            (reticolo[0][2] == player && reticolo[1][1] == player && reticolo[2][0] == player)) {
+            return true;
+        }
+
+        return false;
+    }
+
+    public static int avversario_colonna() {
+        double doublecolonna = Math.random() * 3;
+        int colonna = (int) doublecolonna;
+        return colonna;
+    }
+
+    public static int avversario_riga() {
+        double doubleriga = Math.random() * 3;
+        int riga = (int) doubleriga;
+        return riga;
+    }
+
+    public static void main(String[] args) {
+        Scanner scanner = new Scanner(System.in);
+        System.out.println("Benvenuto in Tris: ");
+        char reticolo[][] = new char[3][3];
+
+        do {
+            int riga;
+            int colonna;
+            do {
+                System.out.println("Inserisci la colonna: ");
+                riga = scanner.nextInt();
+                System.out.println("Inserisci la riga: ");
+                colonna = scanner.nextInt();
+            } while (reticolo[riga - 1][colonna - 1] == 'x' || reticolo[riga - 1][colonna - 1] == 'o');
+
+            reticolo[riga - 1][colonna - 1] = 'x';
+
+            
+            if (controllovincita(reticolo, 'x')) {
+                System.out.println("Hai vinto!");
+                break;
+            }
+
+            int colonna_avversario;
+            int riga_avversario;
+            do {
+                colonna_avversario = avversario_colonna();
+                riga_avversario = avversario_riga();
+            } while (reticolo[colonna_avversario][riga_avversario] == 'x' || reticolo[colonna_avversario][riga_avversario] == 'o');
+
+            reticolo[colonna_avversario][riga_avversario] = 'o';
+
+            
+            if (controllovincita(reticolo, 'o')) {
+                System.out.println("Hai perso! L'avversario ha vinto.");
+                break;
+            }
+
+            for (int i = 0; i < 3; i++) {
+                for (int j = 0; j < 3; j++) {
+                    System.out.print(" |" + reticolo[i][j] + "| ");
+                }
+                System.out.println(" ");
+            }
+        } while (true);
+    }
+}
