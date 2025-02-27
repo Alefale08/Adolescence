@@ -1,0 +1,96 @@
+import java.util.Scanner;
+public class Main
+{
+    private static int i;
+    private static char[]array;
+    public static void InputMessaggio(){
+        Scanner scanner=new Scanner(System.in);
+        array=new char[1000];
+        System.out.println("Inserisci la parola da criptare o * se vuoi terminare : ");
+        i=-1;
+        do{
+            array[i+1]=scanner.next().charAt(0);
+            i++;
+        }while(array[i]!='*');
+        
+    }
+    public static void Criptazione(){
+        for(int j=0;j<i;j++){
+            switch(array[j]){
+                case 'a': array[j] = 'b'; break;
+                case 'b': array[j] = 'c'; break;
+                case 'c': array[j] = 'd'; break;
+                case 'd': array[j] = 'e'; break;
+                case 'e': array[j] = 'f'; break;
+                case 'f': array[j] = 'g'; break;
+                case 'g': array[j] = 'h'; break;
+                case 'h': array[j] = 'i'; break;
+                case 'i': array[j] = 'j'; break;
+                case 'j': array[j] = 'k'; break;
+                case 'k': array[j] = 'l'; break;
+                case 'l': array[j] = 'm'; break;
+                case 'm': array[j] = 'n'; break;
+                case 'n': array[j] = 'o'; break;
+                case 'o': array[j] = 'p'; break;
+                case 'p': array[j] = 'q'; break;
+                case 'q': array[j] = 'r'; break;
+                case 'r': array[j] = 's'; break;
+                case 's': array[j] = 't'; break;
+                case 't': array[j] = 'u'; break;
+                case 'u': array[j] = 'v'; break;
+                case 'v': array[j] = 'w'; break;
+                case 'w': array[j] = 'x'; break;
+                case 'x': array[j] = 'y'; break;
+                case 'y': array[j] = 'z'; break;
+                case 'z': array[j] = 'a'; break;
+            }
+        }
+        System.out.println("Parola criptata: ");
+        for(int j=0;j<i;j++){
+            System.out.print(array[j]+" ");
+        }
+        System.out.println("\n");
+    }
+    public static void Decriptazione(){
+        for(int j=0;j<i;j++){
+            switch(array[j]){
+                case 'b': array[j] = 'a'; break;
+                case 'c': array[j] = 'b'; break;
+                case 'd': array[j] = 'c'; break;
+                case 'e': array[j] = 'd'; break;
+                case 'f': array[j] = 'e'; break;
+                case 'g': array[j] = 'f'; break;
+                case 'h': array[j] = 'g'; break;
+                case 'i': array[j] = 'h'; break;
+                case 'j': array[j] = 'i'; break;
+                case 'k': array[j] = 'j'; break;
+                case 'l': array[j] = 'k'; break;
+                case 'm': array[j] = 'l'; break;
+                case 'n': array[j] = 'm'; break;
+                case 'o': array[j] = 'n'; break;
+                case 'p': array[j] = 'o'; break;
+                case 'q': array[j] = 'p'; break;
+                case 'r': array[j] = 'q'; break;
+                case 's': array[j] = 'r'; break;
+                case 't': array[j] = 's'; break;
+                case 'u': array[j] = 't'; break;
+                case 'v': array[j] = 'u'; break;
+                case 'w': array[j] = 'v'; break;
+                case 'x': array[j] = 'w'; break;
+                case 'y': array[j] = 'x'; break;
+                case 'z': array[j] = 'y'; break;
+                case 'a': array[j] = 'z'; break;
+            }
+        }
+        System.out.println("Parola decriptata: ");
+        for(int j=0;j<i;j++){
+            System.out.print(array[j]+" ");
+        }
+    }
+    public static void main(String[] args) {
+	    System.out.println("Programma di criptazione messaggi.");
+	    InputMessaggio();
+	    Criptazione();
+	    Decriptazione();
+	}
+}
